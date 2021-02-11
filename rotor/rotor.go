@@ -6,12 +6,9 @@ import (
 
 func NewRotor(seed int64, records []string) *Rotor {
 	result := &Rotor{
-		records: make([]string, len(records)),
+		records: records,
 	}
 	rand.Seed(seed)
-	for i, next := range records {
-		result.records[i] = next
-	}
 	rand.Shuffle(len(records), func(i, j int) {
 		result.records[i], result.records[j] = result.records[j], result.records[i]
 	})
