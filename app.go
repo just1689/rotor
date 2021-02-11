@@ -28,11 +28,3 @@ func main() {
 	}
 
 }
-
-type Record struct {
-	Key string
-}
-
-func (r Record) GetID() string {
-	return r.Key
-}
