@@ -8,11 +8,9 @@ import (
 
 func main() {
 	count := 10
-	customers := make([]rotor.Rotorable, 0)
+	customers := make([]string, 0)
 	for i := 0; i < count; i++ {
-		next := Record{
-			Key: fmt.Sprint(i),
-		}
+		next := fmt.Sprint(i)
 		customers = append(customers, next)
 	}
 
@@ -21,11 +19,11 @@ func main() {
 
 	fmt.Println("List: ")
 	found := true
-	var next rotor.Rotorable
+	var next string
 	for found {
 		found, next = r.GetNext()
 		if found {
-			fmt.Print(next.GetID())
+			fmt.Print(next)
 		}
 	}
 

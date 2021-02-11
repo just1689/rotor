@@ -4,13 +4,9 @@ import (
 	"math/rand"
 )
 
-type Rotorable interface {
-	GetID() string
-}
-
-func NewRotor(seed int64, records []Rotorable) *Rotor {
+func NewRotor(seed int64, records []string) *Rotor {
 	result := &Rotor{
-		records: make([]Rotorable, len(records)),
+		records: make([]string, len(records)),
 	}
 	rand.Seed(seed)
 	for i, next := range records {
@@ -24,10 +20,10 @@ func NewRotor(seed int64, records []Rotorable) *Rotor {
 }
 
 type Rotor struct {
-	records []Rotorable
+	records []string
 }
 
-func (r *Rotor) GetNext() (found bool, next Rotorable) {
+func (r *Rotor) GetNext() (found bool, next string) {
 	if len(r.records) == 0 {
 		found = false
 		return
